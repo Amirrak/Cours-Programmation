@@ -1,33 +1,23 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Button from '@mui/material/Button';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [switchPage, setSwitchPage] = useState(false)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="container">
+        <div className="background"></div>
+        <div className={"bienvenue " + (switchPage ? "animate" : "")}>
+          <div className="bienvenuContainer">
+            <h1>Cours de programmation en C</h1>
+            <h2>disponible en pdf egalement</h2>
+            <Button variant="outlined" onClick={()=>{setSwitchPage(true)}}>Voir les cours disponibles</Button>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className={"transitionHider " + (switchPage ? "animate" : "")}></div>
     </>
   )
 }
